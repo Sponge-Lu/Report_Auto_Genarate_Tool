@@ -1,3 +1,4 @@
 {
-    "r.linting.maxLineLength": 1000
+    "r.linting.maxLineLength": 1000,
+    "r.lsp.enabled": true
 }
