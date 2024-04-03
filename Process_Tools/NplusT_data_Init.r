@@ -50,42 +50,42 @@ tryCatch({
   datadt <- datadt[,c("Layer","String") := list(as.integer(Page%/%(MaxString*3)),as.integer((Page%%(MaxString*3))%/%3))];
   datadt <- datadt[,-c("MaxString")];
   
-  # ## tERS
-  # cat("... tERS ... \n");
-  # erasedadadt <- datadt[Measurement=="tERS",];
-  # erasedadadt <- erasedadadt[,-c("Measurement","Page","Level")];
-  # setnames(erasedadadt, "Value", "tERASE");
-  # write.csv(erasedadadt,file=paste0(filepath,"Terase.csv"), row.names = FALSE);
-  # rm(erasedadadt);
-  # ## tPROG
-  # cat("... tPROG ... \n");
-  # progdatadt <- datadt[Measurement=="tPROG",];
-  # progdatadt <- progdatadt[,-c("Measurement","Page","Level")];
-  # setnames(progdatadt, "Value", "tPROG");
-  # write.csv(progdatadt,file=paste0(filepath,"Tprog.csv"), row.names = FALSE);
-  # rm(progdatadt);
-  # ## tREAD
-  # cat("... tREAD ... \n");
-  # readdatadt <- datadt[Measurement=="tR",];
-  # readdatadt <- readdatadt[,-c("Measurement")];
-  # setnames(readdatadt, "Value", "tREAD");
-  # write.csv(readdatadt,file=paste0(filepath,"Tread.csv"), row.names = FALSE);
-  # rm(readdatadt);
-  # ReadBitflip
-  # cat("... Bitflip ... \n");
-  # fbcdatadt <- datadt[Measurement=="FAILS4CHUNK",];
-  # rm(datadt);
-  # gc();
-  # fbcdatadt <- fbcdatadt[,-c("Measurement")];
-  # fbcdatadt <- fbcdatadt[,c("Layer","String","Level") := list(as.integer(Page%/%15),as.integer((Page%%15)%/%3),
-  #                                                             ifelse(Page%%3==0,"LSB",ifelse(Page%%3==1,"CSB","MSB")))];
-  # fbcdatadt <- fbcdatadt[,c("Sector1","Sector2","Sector3","Sector4"):=list(as.integer(sapply(strsplit(Value,"@"),"[",1)),as.integer(sapply(strsplit(Value,"@"),"[",2)),
-  #                                                                          as.integer(sapply(strsplit(Value,"@"),"[",3)),as.integer(sapply(strsplit(Value,"@"),"[",4)))];
-  # fbcdatadt <- fbcdatadt[,c("TotalFBC","AvgFBC"):= list(as.integer(Sector1+Sector2+Sector3+Sector4),as.numeric((Sector1+Sector2+Sector3+Sector4)/4))];
-  # fbcdatadt$MaxFBC <- as.integer(apply(fbcdatadt,1,function(fbcdatadt,c1=c("Sector1","Sector2","Sector3","Sector4")){max(fbcdatadt[c1])}));
-  # fbcdatadt <- fbcdatadt[,-c("Value","Sector1","Sector2","Sector3","Sector4")];
-  # write.csv(fbcdatadt,file=paste0(filepath,"ReadBitflip.csv"), row.names = FALSE);
-  # rm(fbcdatadt);
+  ## tERS
+  cat("... tERS ... \n");
+  erasedadadt <- datadt[Measurement=="tERS",];
+  erasedadadt <- erasedadadt[,-c("Measurement","Page","Level")];
+  setnames(erasedadadt, "Value", "tERASE");
+  write.csv(erasedadadt,file=paste0(filepath,"Terase.csv"), row.names = FALSE);
+  rm(erasedadadt);
+  ## tPROG
+  cat("... tPROG ... \n");
+  progdatadt <- datadt[Measurement=="tPROG",];
+  progdatadt <- progdatadt[,-c("Measurement","Page","Level")];
+  setnames(progdatadt, "Value", "tPROG");
+  write.csv(progdatadt,file=paste0(filepath,"Tprog.csv"), row.names = FALSE);
+  rm(progdatadt);
+  ## tREAD
+  cat("... tREAD ... \n");
+  readdatadt <- datadt[Measurement=="tR",];
+  readdatadt <- readdatadt[,-c("Measurement")];
+  setnames(readdatadt, "Value", "tREAD");
+  write.csv(readdatadt,file=paste0(filepath,"Tread.csv"), row.names = FALSE);
+  rm(readdatadt);
+  ReadBitflip
+  cat("... Bitflip ... \n");
+  fbcdatadt <- datadt[Measurement=="FAILS4CHUNK",];
+  rm(datadt);
+  gc();
+  fbcdatadt <- fbcdatadt[,-c("Measurement")];
+  fbcdatadt <- fbcdatadt[,c("Layer","String","Level") := list(as.integer(Page%/%15),as.integer((Page%%15)%/%3),
+                                                              ifelse(Page%%3==0,"LSB",ifelse(Page%%3==1,"CSB","MSB")))];
+  fbcdatadt <- fbcdatadt[,c("Sector1","Sector2","Sector3","Sector4"):=list(as.integer(sapply(strsplit(Value,"@"),"[",1)),as.integer(sapply(strsplit(Value,"@"),"[",2)),
+                                                                           as.integer(sapply(strsplit(Value,"@"),"[",3)),as.integer(sapply(strsplit(Value,"@"),"[",4)))];
+  fbcdatadt <- fbcdatadt[,c("TotalFBC","AvgFBC"):= list(as.integer(Sector1+Sector2+Sector3+Sector4),as.numeric((Sector1+Sector2+Sector3+Sector4)/4))];
+  fbcdatadt$MaxFBC <- as.integer(apply(fbcdatadt,1,function(fbcdatadt,c1=c("Sector1","Sector2","Sector3","Sector4")){max(fbcdatadt[c1])}));
+  fbcdatadt <- fbcdatadt[,-c("Value","Sector1","Sector2","Sector3","Sector4")];
+  write.csv(fbcdatadt,file=paste0(filepath,"ReadBitflip.csv"), row.names = FALSE);
+  rm(fbcdatadt);
   
   cat("... Bitflip ... \n");
   datadt <- datadt[Measurement=="FAILS4CHUNK",];

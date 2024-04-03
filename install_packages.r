@@ -1,7 +1,7 @@
-install.packages("readr")
+# install.packages("readr")
 
 
-if (FALSE){
+if (TRUE){
 	install.packages("languageserver");        #if use VScode to debug
 
 	install.packages("data.table");
@@ -18,4 +18,6 @@ if (FALSE){
   install.packages("plyr")
   install.packages("RColorBrewer")
   install.packages("readr")
+  install.packages("dplyr")
+  install.packages("arrow")
 }

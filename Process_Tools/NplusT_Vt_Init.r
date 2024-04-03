@@ -12,8 +12,8 @@ require("officer");
 
 ####################### self define file path ##############
 # setwd(dirname(rstudioapi::getActiveDocumentContext()$path)); #set current work path
-filepath = "D:/0_Projects/NplusT/0_BiCS6X3_512Gb/1_BlockRD/Ea1.1/Vt_55C";
-BlkRDlist = c("0K","15K","30K","100K");
+filepath = "D:/0_Projects/NplusT/0_BiCS6X3_512Gb/2_SPRD/Ea1.1/Vt_25C";
+BlkRDlist = c("0M","10M","30M","50M");
 
 tryCatch({
   ###################### Load data ######################
